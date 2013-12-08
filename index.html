@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<title>..::Accordion</title>
+	<head>
+		<!-- Style Sheet-->
+		<style>
+			*{margin:0; padding:0;}
+			body{margin:0 auto;}
+			.container {background:#ffffff; width:500px; margin:0px auto;}
+			.content {border:1px solid #333333; color:#333333; display:none; padding:10px;}
+			.title {background:#888888; color:#d7d7d7; padding:10px; border:1px solid #d7d7d7; cursor:pointer;}
+			.title:hover, .active{background:#d7d7d7; color:#888888;}
+		</style>
+		<!-- Scripts -->
+		<script src="js/jquery.min.js"></script>
+		<script>
+		jQuery(document).ready(function(){
+		$(".container .content").first().css('display','block');
+			$(".container .title").first().addClass('active');
+			$(".container .title").click(function() {
+				$('.title').removeClass('active');
+				$(this).addClass('active');
+			  if($(this).next("div").is(":visible")){
+				$(this).next("div").slideUp("slow");
+				
+			  } else {
+				$(".container .content").slideUp("slow");
+				$(this).next("div").slideToggle("slow");
+				$(this).addClass('active');
+			  }
+			  
+			});
+		});
+		</script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="title">Title 1</div>
+			<div class="content">Content box 1</div>
+			
+			<div class="title">Title 1</div>
+			<div class="content">Content box 1</div>
+			
+			<div class="title">Title 1</div>
+			<div class="content">Content box 1</div>
+			
+			<div class="title">Title 1</div>
+			<div class="content">Content box 1</div>
+			
+			<div class="title">Title 1</div>
+			<div class="content">Content box 1</div>
+		</div>
+	</body>
+	
+</html> 
